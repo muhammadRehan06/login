@@ -1,0 +1,13 @@
+.InputContainer{
+    padding: 5px;
+}
+.label{
+    display: block;
+    margin: auto;
+    font-weight: bolder;
+}
+.InputWrapper Input{
+width: 400px;
+height: 30px;
+margin: 5px auto;
+}

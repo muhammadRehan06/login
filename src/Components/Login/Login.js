@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input } from '../input/Input';
+import "./login.css";
 
 class Login extends Component {
     constructor(props) {
@@ -22,13 +23,22 @@ class Login extends Component {
     }
     onSubmit = (ev) =>{
         ev.preventDefault();
+        const {users, errors, name, pass} = this.state;
+       var currentUser = users.filter((user) => {
+            return user.name === name && user.pass === pass
+        })
+        if(currentUser.length){
+            // this.setState({currentUser:currentUser[0]})
+        }
 
     }
     render() { 
         const {name, errors, pass} = this.state;
         return (
-            <div>
+            <div >
+                <div className="login-form-wrapper">
                 <form onSubmit={(ev) => this.onSubmit(ev)}>
+                    <h1>Login</h1>
                 <Input
                     type='text'
                     value={name}
@@ -57,6 +67,7 @@ class Login extends Component {
                 id="my-btn"
                  />
                 </form>
+                </div>
             </div>
         );
     }
